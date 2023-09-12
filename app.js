@@ -33,6 +33,9 @@
   fallbackLineHeight.addEventListener('input', updateLineHeight);
   webfontLineHeight.addEventListener('input', updateLineHeight);
 
+  fallbackSizeAdjust.addEventListener('input', updateSizeAdjust);
+  webfontSizeAdjust.addEventListener('input', updateSizeAdjust);
+
   fallbackSpacing.addEventListener('input', updateFontSpacing);
   webfontSpacing.addEventListener('input', updateFontSpacing);
 
@@ -86,6 +89,14 @@
     updateStyle('line-height', which, value);
     updateStyle('line-height', which + 'Output', value);
     document.getElementById(which + 'LineHeightDisplay').textContent = value;
+  }
+
+  function updateSizeAdjust(event) {
+    var value = event.target.value + '%';
+    var which = event.target.dataset.target;
+    updateStyle('size-adjust', which, value);
+    updateStyle('size-adjust', which + 'Output', value);
+    document.getElementById(which + 'SizeAdjustDisplay').textContent = value;
   }
 
   function updateFontSpacing(event) {
